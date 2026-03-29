@@ -22,16 +22,22 @@ int factorial(int n) {
   return result;
 }
 
-import 'package:test/test.dart';
-// Certifique-se de que o import da sua lógica está aqui, ex:
-// import 'package:seu_projeto/funcoes.dart';
-
 bool isPrime(int number) {
   if (number < 2) return false;
   for (int i = 2; i * i <= number; i++) {
     if (number % i == 0) return false;
   }
   return true;
+}
+
+int sumOfDigits(int number) {
+  if (number < 0) throw ArgumentError('Número negativo');
+  int sum = 0;
+  String digits = number.toString();
+  for (int i = 0; i < digits.length; i++) {
+    sum += int.parse(digits[i]);
+  }
+  return sum;
 }
 
 void main() {
@@ -45,33 +51,33 @@ void main() {
     });
   });
 
-  test('Fatorial de número negativo deve lançar erro', () {
-    expect(() => factorial(-3), throwsArgumentError);
+  group('Testes de Fatorial', () {
+    test('Fatorial de 5', () {
+      expect(factorial(5), equals(120));
+    });
+
+    test('Fatorial de número negativo deve lançar erro', () {
+      expect(() => factorial(-3), throwsArgumentError);
+    });
   });
 
   group('Testes de Número primo', () {
-    test('Deve retornar true para o número 7', () {
+    test('Número primo 7', () {
       expect(isPrime(7), isTrue);
     });
-    
-    test('Deve retornar false para o número 10', () {
-      expect(isPrime(10), isFalse);
-    });
-  }); 
 
-    test('Deve retornar false para o número 10', () {
+    test('Número não primo 10', () {
       expect(isPrime(10), isFalse);
     });
   });
- 
 
- group('Testes de Soma dos dígitos', () {
-   test('Soma dos dígitos de 123', () {
-     expect(sumOfDigits(123), equals(6));
-   });
-   test('Soma dos dígitos de -1', () {
-     expect(sumOfDigits(-1), throwsArgumentError);
-   });
- });
+  group('Testes de Soma dos dígitos', () {
+    test('Soma dos dígitos de 123', () {
+      expect(sumOfDigits(123), equals(6));
+    });
 
+    test('Soma dos dígitos de -1', () {
+      expect(() => sumOfDigits(-1), throwsArgumentError);
+    });
+  });
 }
