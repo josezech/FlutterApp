@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "998318356050",
+    "project_id": "flutterapp-d8600",
+    "storage_bucket": "flutterapp-d8600.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998318356050:android:1fe78b2f697b0778a3918b",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcGfQXuK6rXfMXwH_-Ld0AkUnxkyutcJI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
