@@ -5,10 +5,14 @@ import 'firebase_options.dart';
 import 'login.dart';
 import 'welcome.dart';
 import 'notes.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'notifications.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Notifications.init();
+  await Permission.notification.request();
   runApp(const MyApp());
 }
 
